@@ -420,17 +420,4 @@ done
 	uci commit passwall
 	/etc/init.d/haproxy restart
 	/etc/init.d/passwall restart
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=819962925&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961471310&sub_domain=nc&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961580270&sub_domain=office&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961580697&sub_domain=omv&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=848621776&sub_domain=pve&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=818891403&sub_domain=nas&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581750&sub_domain=mv&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581233&sub_domain=lede&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581065&sub_domain=ik&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581055&sub_domain=docker&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=848622726&sub_domain=aria2&value='$anycast'&record_type=A&record_line=默认'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=929254598&sub_domain=buy100a&value='$anycast'&record_type=A&record_line=境内'
-	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=963466316&sub_domain=cfip&value='$anycast'&record_type=A&record_line=默认'
 	exit
