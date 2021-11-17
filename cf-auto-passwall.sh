@@ -37,8 +37,8 @@ localport=8443
 remoteport=443
 declare -i bandwidth
 declare -i speed
-#下面 bandwidth 参数为带宽大小，请自行设置，默认 50
-bandwidth=200
+#下面 bandwidth 参数为带宽大小，请自行设置，默认 100
+bandwidth=100
 speed=bandwidth*128*1024
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
 while true
@@ -417,14 +417,20 @@ done
 	echo 峰值速度 $max kB/s
 	echo 数据中心 $colo
 	echo 总计用时 $((end_seconds-start_seconds)) 秒
-	uci set passwall.cf6d0208c5564449a4ea2da95051109e.address=$anycast #buy100a_CF
-	uci set passwall.d0529648c773467d86872dd7c2e5ab34.address=$anycast #buy100a_CF1
-	uci set passwall.1e5cca61b6924499892257c0b4577171.address=$anycast #buy100a_CF2
-     uci set passwall.64633dd544ff49d49cf9e94573b5f34d.address=$anycast #heroku939xray
-     uci set passwall.9c3d33cce781479faa9189958ac39f91.address=$anycast #heroku938xray
-     uci set passwall.f49f7ef9f1bc4bba87401e489b4cad98.address=$anycast #heroku937xray
-     uci set passwall.423336fd37274417bf9586a0fcbd7814.address=$anycast #heroku936xray
 	uci commit passwall
 	/etc/init.d/haproxy restart
 	/etc/init.d/passwall restart
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=819962925&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961471310&sub_domain=nc&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961580270&sub_domain=office&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961580697&sub_domain=omv&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=848621776&sub_domain=pve&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=818891403&sub_domain=nas&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581750&sub_domain=mv&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581233&sub_domain=lede&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581065&sub_domain=ik&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=961581055&sub_domain=docker&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=848622726&sub_domain=aria2&value='$anycast'&record_type=A&record_line=默认'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=929254598&sub_domain=buy100a&value='$anycast'&record_type=A&record_line=境内'
+	curl -X POST https://dnsapi.cn/Record.Modify -d 'login_token=202364,23fffee2be78ac97c3153713bdad3131&format=json&domain_id=83958129&record_id=963466316&sub_domain=cfip&value='$anycast'&record_type=A&record_line=默认'
 	exit
